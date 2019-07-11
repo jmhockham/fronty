@@ -1,2 +1,2 @@
 # fronty
-generic front end webapp
+generic front end webapp, using play framework
