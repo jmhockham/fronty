@@ -31,12 +31,6 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="@routes.Assets.versioned("images/ico/apple-touch-icon-72-precomposed.png")">
         <link rel="apple-touch-icon-precomposed" href="@routes.Assets.versioned("images/ico/apple-touch-icon-57-precomposed.png")">
 
-    </head>
-    <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        @* And here's where we render the `Html` object containing
-         * the page content. *@
-        @content
-
         <script type="text/javascript" src="@routes.Assets.versioned("javascripts/main.js")"></script>
 
         <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.min.js")"></script>
@@ -57,5 +51,13 @@
         <script type="text/javascript" src="@routes.Assets.versioned("javascripts/custom.js")"></script>
 
         <script type="text/javascript" src="https://code.highcharts.com/highcharts.src.js"></script>
+
+    </head>
+    <body data-spy="scroll" data-target=".bs-docs-sidebar">
+        @* And here's where we render the `Html` object containing
+         * the page content. *@
+        @content
+
+
     </body>
 </html>
