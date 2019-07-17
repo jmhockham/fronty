@@ -4,7 +4,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                            controllers.HomeController.index
+GET     /counts                      controllers.HomeController.getCounts
 #GET     /                           controllers.Assets.at(path="/public/Serenity",file="index.html")
 
 # Map static resources from the /public folder to the /assets URL path

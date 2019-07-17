@@ -3,9 +3,10 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
-import scala.concurrent.{ExecutionContext, Future, Promise}
+import scala.concurrent.{Future, Promise}
 import play.api.Environment
 import play.api.libs.json.Json
+import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -15,7 +16,7 @@ import play.api.libs.json.Json
 class HomeController @Inject()(
   cc: ControllerComponents,
   env: Environment
-) (implicit exec: ExecutionContext) extends AbstractController(cc) {
+) () extends AbstractController(cc) {
 
   /**
    * Create an Action to render an HTML page.
@@ -30,7 +31,7 @@ class HomeController @Inject()(
 
   def getCounts(): Action[AnyContent] = Action.async {
     Future {
-      val stream = env.classLoader.getResourceAsStream("")
+      val stream = env.classLoader.getResourceAsStream("public/test.json")
       val json = try {  Json.parse(stream) } finally { stream.close() }
       Ok(json)
     }

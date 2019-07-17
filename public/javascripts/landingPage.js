@@ -1,6 +1,7 @@
 $.getJSON(
     //USD to EUR exchange rate over time
-    'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json',
+    //'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json',
+    'http://localhost:9000/counts',
     function (data) {
 
         Highcharts.chart('graph-container', {
@@ -19,7 +20,7 @@ $.getJSON(
             },
             yAxis: {
                 title: {
-                    text: 'Exchange rate'
+                    text: 'Total views'
                 }
             },
             legend: {
@@ -54,7 +55,7 @@ $.getJSON(
 
             series: [{
                 type: 'area',
-                name: 'USD to EUR',
+                name: 'Views',
                 data: data
             }]
         });
