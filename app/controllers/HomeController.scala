@@ -1,12 +1,12 @@
 package controllers
 
 import javax.inject._
-import play.api._
-import play.api.mvc._
-import scala.concurrent.{Future, Promise}
 import play.api.Environment
 import play.api.libs.json.Json
+import play.api.mvc._
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -25,11 +25,11 @@ class HomeController @Inject()(
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index() = Action { implicit request: Request[AnyContent] =>
+  def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.landingPage())
   }
 
-  def getCounts(): Action[AnyContent] = Action.async {
+  def getCounts: Action[AnyContent] = Action.async {
     Future {
       val stream = env.classLoader.getResourceAsStream("public/test.json")
       val json = try {  Json.parse(stream) } finally { stream.close() }
